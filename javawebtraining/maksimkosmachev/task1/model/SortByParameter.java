@@ -8,14 +8,7 @@ import java.util.List;
 
 public class SortByParameter {
     public static int findGeneralQuantity(TaxiPark taxiPark) {
-        int carQuantity = 0;
-        for (Car tax : taxiPark.getCars()) {
-            if (tax.getPrice() != 0) {
-                carQuantity++;
-            }
-        }
-
-        return carQuantity;
+        return taxiPark.getCars().size();
     }
 
     public static TaxiPark findbyYearOfIssue(int yearOfIssueFrom, int yearOfIssueTo, TaxiPark taxiPark) {
@@ -31,7 +24,7 @@ public class SortByParameter {
         return sortedPark;
     }
 
-    public static List<Car> orderByConsumption(TaxiPark taxiPark) {
+    public static TaxiPark orderByConsumption(TaxiPark taxiPark) {
         TaxiPark sortedPark = new TaxiPark(taxiPark.getCars());
         double temp;
         for (int i = sortedPark.getCars().size() - 1; i >= 1; i--) {
@@ -44,6 +37,17 @@ public class SortByParameter {
             }
         }
 
-        return sortedPark.getCars();
+        return sortedPark;
+    }
+
+    public static Car theOldestCar(TaxiPark taxiPark) {
+        Car oldestCar;
+        oldestCar = taxiPark.getCars().get(0);
+        for (int i = 1; i < taxiPark.getCars().size(); i++) {
+            if (taxiPark.getCars().get(i).getYearOfIssue() <= oldestCar.getYearOfIssue()) {
+                oldestCar = taxiPark.getCars().get(i);
+            }
+        }
+        return oldestCar;
     }
 }

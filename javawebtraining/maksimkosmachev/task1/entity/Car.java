@@ -1,83 +1,91 @@
 package by.epam.javawebtraining.maksimkosmachev.task1.entity;
 
+import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarManufacturer;
+import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfFuel;
+
 import java.util.Objects;
 
 public class Car {
-    private int price;
-    private double consumption;
+    private CarManufacturer manufacturer;
     private int yearOfIssue;
-    private String fuelType;
-    private int kilometrage;
+    private int price;
+    private TypeOfFuel fuelType;
+    private double consumption;
     private double engineValue;
-    private String manufacturer;
+    private int kilometrage;
     private double fare;
 
-    public Car(int price, double consumption, int yearOfIssue, String fuelType, int kilometrage, double engineValue, String manufacturer, double fare) {
-        this.price = price;
-        this.consumption = consumption;
-        this.yearOfIssue = yearOfIssue;
-        this.fuelType = fuelType;
-        this.kilometrage = kilometrage;
-        this.engineValue = engineValue;
+    public Car(CarManufacturer manufacturer, int yearOfIssue, int price, TypeOfFuel fuelType,
+               double consumption, double engineValue, int kilometrage, double fare) {
         this.manufacturer = manufacturer;
+        this.yearOfIssue = yearOfIssue;
+        this.price = price;
+        this.fuelType = fuelType;
+        this.consumption = consumption;
+        this.engineValue = engineValue;
+        this.kilometrage = kilometrage;
         this.fare = fare;
     }
 
-    Car() {
+
+    public Car() {
 
     }
 
-    Car (Car car){
-       this.price=car.price;
-        this.consumption = car.consumption;
-        this.yearOfIssue = car.yearOfIssue;
-        this.fuelType = car.fuelType;
-        this.kilometrage = car.kilometrage;
-        this.engineValue = car.engineValue;
+    Car(Car car) {
         this.manufacturer = car.manufacturer;
+        this.yearOfIssue = car.yearOfIssue;
+        this.price = car.price;
+        this.fuelType = car.fuelType;
+        this.consumption = car.consumption;
+        this.engineValue = car.engineValue;
+        this.kilometrage = car.kilometrage;
         this.fare = car.fare;
 
     }
 
     public int getPrice() {
+
         return price;
     }
 
     public void setPrice(int price) {
-        if (price > 0) {
-            this.price = price;
-        }
+        this.price = price;
     }
+
 
     public double getConsumption() {
         return consumption;
     }
 
     public void setConsumption(double consumption) {
-        if (consumption > 0) {
-            this.consumption = consumption;
-        }
+        this.consumption = consumption;
     }
 
+
     public int getYearOfIssue() {
+
         return yearOfIssue;
     }
 
     public void setYearOfIssue(int yearOfIssue) {
-        if (yearOfIssue > 0) {
+        if (yearOfIssue > 1985) {                      // older cars are not used in taxipark
             this.yearOfIssue = yearOfIssue;
         }
     }
 
-    public String getFuelType() {
+    public TypeOfFuel getFuelType() {
+
         return fuelType;
     }
 
-    public void setFuelType(String fuelType) {
+    public void setFuelType(TypeOfFuel fuelType) {
         this.fuelType = fuelType;
     }
 
+
     public int getKilometrage() {
+
         return kilometrage;
     }
 
@@ -88,6 +96,7 @@ public class Car {
     }
 
     public double getFare() {
+
         return fare;
     }
 
@@ -101,15 +110,17 @@ public class Car {
         return engineValue;
     }
 
-    public void setEngineValue(int engineValue) {
-        this.engineValue = engineValue;
+    public void setEngineValue(double engineValue) {
+        if (engineValue > 0 && engineValue < 10) {
+            this.engineValue = engineValue;
+        }
     }
 
-    public String getManufacturer() {
+    public CarManufacturer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(CarManufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
 
@@ -117,32 +128,35 @@ public class Car {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Car)) return false;
         Car car = (Car) o;
-        return price == car.price &&
+        return yearOfIssue == car.yearOfIssue &&
+                price == car.price &&
                 Double.compare(car.consumption, consumption) == 0 &&
-                yearOfIssue == car.yearOfIssue &&
+                Double.compare(car.engineValue, engineValue) == 0 &&
                 kilometrage == car.kilometrage &&
-                Objects.equals(fuelType, car.fuelType);
+                Double.compare(car.fare, fare) == 0 &&
+                manufacturer == car.manufacturer &&
+                fuelType == car.fuelType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, consumption, yearOfIssue, fuelType, kilometrage);
+        return Objects.hash(manufacturer, yearOfIssue, price, fuelType, consumption,
+                engineValue, kilometrage, fare);
     }
-
 
     @Override
     public String toString() {
         return "Car{" +
-                "price=" + price + "$ "+
-                ", consumption=" + consumption + " L/100 km"+
-                ", yearOfIssue=" + yearOfIssue + "year "+
-                ", fuelType='" + fuelType + '\'' +
-                ", kilometrage=" + kilometrage +" km "+
-                ", engineValue=" + engineValue + "cm 3"+
-                ", manufacturer='" + manufacturer + '\'' +
-                ", fare=" + fare + "rub."+
+                "manufacturer=" + manufacturer +
+                ", yearOfIssue=" + yearOfIssue + "year" +
+                ", price=" + price + "$" +
+                ", fuelType=" + fuelType.toString() +
+                ", consumption=" + consumption + "L/100 km" +
+                ", engineValue=" + engineValue + "L" +
+                ", kilometrage=" + kilometrage + "km" +
+                ", fare=" + fare + "rub." +
                 '}';
     }
 }

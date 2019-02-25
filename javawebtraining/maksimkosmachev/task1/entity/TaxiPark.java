@@ -6,11 +6,9 @@ import java.util.List;
 public class TaxiPark {
 
 
-    private int carQuantity=0;
     private List<Car> cars;
 
     public TaxiPark(List<Car> cars) {
-        this.carQuantity=carQuantity;
         this.cars = cars;
     }
 

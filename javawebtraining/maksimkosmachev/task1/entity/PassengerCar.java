@@ -1,28 +1,35 @@
 package by.epam.javawebtraining.maksimkosmachev.task1.entity;
 
+import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarBodyType;
+import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarManufacturer;
+import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfFuel;
+
 public class PassengerCar extends Car {
 
     private int seatsQuantity;
-    private String bodyType;
+    private CarBodyType bodyType;
 
-    public PassengerCar(int price, double consumption, int yearOfIssue, String fuelType, int kilometrage,
-                        double engineValue, String manufacturer, double fare, int seatsQuantity, String bodyType) {
-        super(price, consumption, yearOfIssue, fuelType, kilometrage, engineValue, manufacturer, fare);
+    public PassengerCar(CarManufacturer manufacturer, int yearOfIssue, int price, TypeOfFuel fuelType,
+                        double consumption, double engineValue, int kilometrage, double fare,
+                        int seatsQuantity, CarBodyType bodyType) {
+        super(manufacturer, yearOfIssue, price, fuelType, consumption, engineValue, kilometrage, fare);
         this.seatsQuantity = seatsQuantity;
         this.bodyType = bodyType;
     }
 
     public PassengerCar() {
+            super();
 
     }
 
-    PassengerCar(PassengerCar passengerCar) {
+   PassengerCar(PassengerCar passengerCar){
         super(passengerCar);
-        this.seatsQuantity = passengerCar.seatsQuantity;
-        this.bodyType = passengerCar.bodyType;
-    }
+        this.seatsQuantity=passengerCar.seatsQuantity;
+        this.bodyType=passengerCar.bodyType;
+   }
 
     public int getSeatsQuantity() {
+
         return seatsQuantity;
     }
 
@@ -32,19 +39,19 @@ public class PassengerCar extends Car {
         }
     }
 
-    public String getBodyType() {
+    public CarBodyType getBodyType() {
         return bodyType;
     }
-
-    public void setBodyType(String bodyType) {
-        this.bodyType = bodyType;
+    public void setBodyType(CarBodyType carBodyType){
+        this.bodyType=carBodyType;
     }
+
 
     @Override
     public String toString() {
-        return super.toString() + "PassengerCar{" +
-                "seatsQuantity= " + seatsQuantity +
-                ", bodyType='" + bodyType + '\'' +
+        return super.toString()+"PassengerCar{" +
+                "seatsQuantity=" + seatsQuantity +
+                ", bodyType=" + bodyType.toString() +
                 '}';
     }
 }

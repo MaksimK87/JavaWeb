@@ -1,33 +1,40 @@
 package by.epam.javawebtraining.maksimkosmachev.task1.entity;
 
+import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarManufacturer;
+import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfFuel;
+import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfLorry;
+
 public class Lorry extends Car {
-    private String typeOfLorry;
+    private TypeOfLorry typeOfLorry;
     private int weight;
 
-    public Lorry(int price, double consumption, int yearOfIssue, String fuelType, int kilometrage, double engineValue,
-                 String manufacturer, double fare, String typeOfLorry, int weight) {
-        super(price, consumption, yearOfIssue, fuelType, kilometrage, engineValue, manufacturer, fare);
+    public Lorry(CarManufacturer manufacturer, int yearOfIssue, int price, TypeOfFuel fuelType,
+                 double consumption, double engineValue, int kilometrage, double fare,
+                 TypeOfLorry typeOfLorry, int weight) {
+        super(manufacturer, yearOfIssue, price, fuelType, consumption, engineValue, kilometrage, fare);
         this.typeOfLorry = typeOfLorry;
         this.weight = weight;
     }
 
-    public Lorry() {
-
-    }
-
-    Lorry(Lorry lorry) {
+    public Lorry(Lorry lorry) {
         super(lorry);
         this.typeOfLorry = lorry.typeOfLorry;
         this.weight = lorry.weight;
     }
 
-    public String getTypeOfLorry() {
+    public Lorry() {
+        super();
+
+    }
+
+    public TypeOfLorry getTypeOfLorry() {
         return typeOfLorry;
     }
 
-    public void setTypeOfLorry(String typeOfLorry) {
+    public void setTypeOfLorry(TypeOfLorry typeOfLorry) {
         this.typeOfLorry = typeOfLorry;
     }
+
 
     public int getWeight() {
         return weight;
@@ -42,8 +49,8 @@ public class Lorry extends Car {
     @Override
     public String toString() {
         return super.toString() + "Lorry{" +
-                "typeOfLorry='" + typeOfLorry + '\'' +
-                ", weight=" + weight + " kg"+
+                "typeOfLorry=" + typeOfLorry.toString() +
+                ", weight=" + weight + "kg" +
                 '}';
     }
 }
