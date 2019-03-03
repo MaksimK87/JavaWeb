@@ -122,7 +122,7 @@ public class Car {
     }
 
     public void setEngineValue(double engineValue) throws CarIllegalException {
-        if (engineValue <= 0 && engineValue >= 10) {
+        if (engineValue <= 0 || engineValue >= 10) {
             throw new CarIllegalException("Engine value is incorrect");
         }
         this.engineValue = engineValue;
