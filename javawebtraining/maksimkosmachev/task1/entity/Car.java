@@ -2,8 +2,10 @@ package by.epam.javawebtraining.maksimkosmachev.task1.entity;
 
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarManufacturer;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfFuel;
+import by.epam.javawebtraining.maksimkosmachev.task1.exception.CarIllegalException;
 
 import java.util.Objects;
+
 
 public class Car {
     private CarManufacturer manufacturer;
@@ -32,7 +34,7 @@ public class Car {
 
     }
 
-    Car(Car car) {
+    public Car(Car car) {
         this.manufacturer = car.manufacturer;
         this.yearOfIssue = car.yearOfIssue;
         this.price = car.price;
@@ -45,12 +47,15 @@ public class Car {
     }
 
     public int getPrice() {
-
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPrice(int price) throws CarIllegalException {
+        if (price <= 0) {
+            throw new CarIllegalException("Price is incorrect");
+        }
+        this.price=price;
+
     }
 
 
@@ -58,7 +63,10 @@ public class Car {
         return consumption;
     }
 
-    public void setConsumption(double consumption) {
+    public void setConsumption(double consumption) throws CarIllegalException {
+        if(consumption<=0){
+            throw  new CarIllegalException("Consumption is incorrect");
+        }
         this.consumption = consumption;
     }
 
@@ -68,10 +76,11 @@ public class Car {
         return yearOfIssue;
     }
 
-    public void setYearOfIssue(int yearOfIssue) {
-        if (yearOfIssue > 1985) {                      // older cars are not used in taxipark
-            this.yearOfIssue = yearOfIssue;
+    public void setYearOfIssue(int yearOfIssue) throws CarIllegalException {
+        if (yearOfIssue < 1985) {                      // older cars are not used in taxipark
+            throw new CarIllegalException("Year of issue must be more than 1985");
         }
+        this.yearOfIssue = yearOfIssue;
     }
 
     public TypeOfFuel getFuelType() {
@@ -89,10 +98,11 @@ public class Car {
         return kilometrage;
     }
 
-    public void setKilometrage(int kilometrage) {
-        if (kilometrage > 0) {
-            this.kilometrage = kilometrage;
+    public void setKilometrage(int kilometrage) throws CarIllegalException {
+        if (kilometrage < 0) {
+            throw new CarIllegalException("Kilometrage is incorrect ");
         }
+        this.kilometrage = kilometrage;
     }
 
     public double getFare() {
@@ -100,20 +110,22 @@ public class Car {
         return fare;
     }
 
-    public void setFare(double fare) {
-        if (fare > 0) {
-            this.fare = fare;
+    public void setFare(double fare) throws CarIllegalException {
+        if (fare <= 0) {
+            throw new CarIllegalException("Fare is incorrect");
         }
+        this.fare = fare;
     }
 
     public double getEngineValue() {
         return engineValue;
     }
 
-    public void setEngineValue(double engineValue) {
-        if (engineValue > 0 && engineValue < 10) {
-            this.engineValue = engineValue;
+    public void setEngineValue(double engineValue) throws CarIllegalException {
+        if (engineValue <= 0 && engineValue >= 10) {
+            throw new CarIllegalException("Engine value is incorrect");
         }
+        this.engineValue = engineValue;
     }
 
     public CarManufacturer getManufacturer() {
@@ -142,8 +154,7 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return Objects.hash(manufacturer, yearOfIssue, price, fuelType, consumption,
-                engineValue, kilometrage, fare);
+        return Objects.hash(manufacturer, yearOfIssue, price, fuelType, consumption, engineValue, kilometrage, fare);
     }
 
     @Override
@@ -154,7 +165,7 @@ public class Car {
                 ", price=" + price + "$" +
                 ", fuelType=" + fuelType.toString() +
                 ", consumption=" + consumption + "L/100 km" +
-                ", engineValue=" + engineValue + "L" +
+                ","+"\n" +"engineValue=" + engineValue + "L" +
                 ", kilometrage=" + kilometrage + "km" +
                 ", fare=" + fare + "rub." +
                 '}';

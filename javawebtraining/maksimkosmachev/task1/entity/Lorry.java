@@ -3,6 +3,7 @@ package by.epam.javawebtraining.maksimkosmachev.task1.entity;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarManufacturer;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfFuel;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfLorry;
+import by.epam.javawebtraining.maksimkosmachev.task1.exception.CarIllegalException;
 
 public class Lorry extends Car {
     private TypeOfLorry typeOfLorry;
@@ -40,10 +41,11 @@ public class Lorry extends Car {
         return weight;
     }
 
-    public void setWeight(int weight) {
-        if (weight > 0) {
-            this.weight = weight;
+    public void setWeight(int weight) throws CarIllegalException {
+        if (weight <= 0) {
+            throw new CarIllegalException("Weight is incorrect");
         }
+        this.weight = weight;
     }
 
     @Override

@@ -2,6 +2,7 @@ package by.epam.javawebtraining.maksimkosmachev.task1.model;
 
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.Car;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.TaxiPark;
+import by.epam.javawebtraining.maksimkosmachev.task1.exception.CarIllegalException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class SortByParameter {
         return sortedPark;
     }
 
-    public static TaxiPark orderByConsumption(TaxiPark taxiPark) {
+    public static TaxiPark orderByConsumption(TaxiPark taxiPark) throws CarIllegalException {
         TaxiPark sortedPark = new TaxiPark(taxiPark.getCars());
         double temp;
         for (int i = sortedPark.getCars().size() - 1; i >= 1; i--) {

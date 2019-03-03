@@ -3,6 +3,7 @@ package by.epam.javawebtraining.maksimkosmachev.task1.entity;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarBodyType;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarManufacturer;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfFuel;
+import by.epam.javawebtraining.maksimkosmachev.task1.exception.CarIllegalException;
 
 public class PassengerCar extends Car {
 
@@ -33,10 +34,11 @@ public class PassengerCar extends Car {
         return seatsQuantity;
     }
 
-    public void setSeatsQuantity(int seatsQuantity) {
-        if (seatsQuantity > 0) {
-            this.seatsQuantity = seatsQuantity;
+    public void setSeatsQuantity(int seatsQuantity) throws CarIllegalException {
+        if (seatsQuantity <= 0) {
+           throw new CarIllegalException("Seats quantity is incorrect");
         }
+        this.seatsQuantity = seatsQuantity;
     }
 
     public CarBodyType getBodyType() {
