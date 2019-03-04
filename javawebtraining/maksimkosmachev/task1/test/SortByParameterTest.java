@@ -10,7 +10,6 @@ import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfFuel;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfLorry;
 import by.epam.javawebtraining.maksimkosmachev.task1.exception.CarIllegalException;
 import by.epam.javawebtraining.maksimkosmachev.task1.model.SortByParameter;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,11 +44,7 @@ public class SortByParameterTest {
         taxiPark.add(car4);
 
     }
-
-    @After
-    public void clenUp() {
-        taxiPark = null;
-    }
+    
 
     @Test
     public void findGeneralQuantityTest() {
