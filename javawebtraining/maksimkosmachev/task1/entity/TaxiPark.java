@@ -4,8 +4,9 @@ import by.epam.javawebtraining.maksimkosmachev.task1.exception.CarIllegalExcepti
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class TaxiPark {
+public class TaxiPark  {
 
 
     private List<Car> cars;
@@ -14,7 +15,7 @@ public class TaxiPark {
         this.cars = cars;
     }
 
-    TaxiPark() {
+    public TaxiPark() {
         cars = new ArrayList<>();
     }
 
@@ -43,6 +44,19 @@ public class TaxiPark {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TaxiPark)) return false;
+        TaxiPark taxiPark = (TaxiPark) o;
+        return Objects.equals(cars, taxiPark.cars);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cars);
+    }
+
+    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder("TaxiPark: "+"\n");
         for (Car car : cars) {
@@ -50,4 +64,8 @@ public class TaxiPark {
         }
         return builder + "";
     }
+
+
+
+
 }

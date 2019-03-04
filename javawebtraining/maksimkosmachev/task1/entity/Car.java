@@ -7,7 +7,7 @@ import by.epam.javawebtraining.maksimkosmachev.task1.exception.CarIllegalExcepti
 import java.util.Objects;
 
 
-public class Car {
+public class Car implements Comparable<Car> {
     private CarManufacturer manufacturer;
     private int yearOfIssue;
     private int price;
@@ -169,5 +169,12 @@ public class Car {
                 ", kilometrage=" + kilometrage + "km" +
                 ", fare=" + fare + "rub." +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        Double thisCar=new Double(this.getConsumption());
+        Double comparedCar=new Double(o.getConsumption());
+        return thisCar.compareTo(comparedCar);
     }
 }

@@ -1,7 +1,7 @@
 package by.epam.javawebtraining.maksimkosmachev.task1.entity.enums;
 
 public enum CarManufacturer {
-    VOLVO("Volvo"), DAF("DAF"), MERSEDES("Mersedes"), FORD("Ford"), VOLKSWAGEN("Volksvagen"), TOYOTA("Toyota"),
+    VOLVO("Volvo"), DAF("DAF"), MERSEDES("Mersedes"), FORD("Ford"), VOLKSWAGEN("Volkswagen"), TOYOTA("Toyota"),
     NISSAN("Nissan"), HYUNDAI("Hyundai"), BMW("BMW"), OPEL("Opel"), MAZDA("Mazda"), RENAULT("Renault"),
     HONDA("Honda"), MITSUBISHI("Mitsubishi"), AUDI("Audi");
     private String manufacturer;

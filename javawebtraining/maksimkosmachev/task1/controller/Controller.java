@@ -19,10 +19,13 @@ public class Controller {
             taxiPark = new TaxiPark(randomCreator.createRandomCars());
             System.out.println("Quantity of car : "+"\n" + SortByParameter.findGeneralQuantity(taxiPark) + "\n");
             printer.print(taxiPark);
-            System.out.println("The oldest car is: "+"\n" + SortByParameter.theOldestCar(taxiPark).toString() + "\n");
+            System.out.println("The oldest car is: "+"\n" + SortByParameter.findTheOldestCar(taxiPark) + "\n");
             System.out.println("Year of issue range:"+"\n" + SortByParameter.findbyYearOfIssue(1991,
-                    2018, taxiPark).toString() + "\n");
+                    2018, taxiPark) + "\n");
             System.out.println("Sorted by consumption "+"\n" + SortByParameter.orderByConsumption(taxiPark) + "\n");
+            System.out.println("All lorries in taxi park: " +SortByParameter.findAllLorry(taxiPark)+"\n");
+            System.out.println("All passangers cars in taxi park: " +SortByParameter.findAllPassangerCar(taxiPark));
+
         } catch (Exception e) {
             System.err.println(e);
         }
