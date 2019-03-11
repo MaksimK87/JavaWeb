@@ -8,7 +8,7 @@ import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarManufacture
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfFuel;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfLorry;
 import by.epam.javawebtraining.maksimkosmachev.task1.exception.CarIllegalException;
-import by.epam.javawebtraining.maksimkosmachev.task1.util.myArrayList.SimpleCarArray;
+import by.epam.javawebtraining.maksimkosmachev.task1.util.myarraylist.SimpleCarArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
