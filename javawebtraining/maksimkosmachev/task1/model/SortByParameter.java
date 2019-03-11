@@ -39,8 +39,10 @@ public class SortByParameter {
         Car oldestCar;
         oldestCar = taxiPark.getCars().get(0);
         for (int i = 1; i < taxiPark.getCars().size(); i++) {
-            if (taxiPark.getCars().get(i).getYearOfIssue() <= oldestCar.getYearOfIssue()) {
-                oldestCar = taxiPark.getCars().get(i);
+            if(taxiPark.getCars().get(i)!=null) {
+                if (taxiPark.getCars().get(i).getYearOfIssue() <= oldestCar.getYearOfIssue()) {
+                    oldestCar = taxiPark.getCars().get(i);
+                }
             }
         }
         return oldestCar;

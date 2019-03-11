@@ -44,7 +44,7 @@ public class SortByParameterTest {
         taxiPark.add(car4);
 
     }
-    
+
 
     @Test
     public void findGeneralQuantityTest() {

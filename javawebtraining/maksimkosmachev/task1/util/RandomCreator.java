@@ -8,8 +8,10 @@ import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.CarManufacture
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfFuel;
 import by.epam.javawebtraining.maksimkosmachev.task1.entity.enums.TypeOfLorry;
 import by.epam.javawebtraining.maksimkosmachev.task1.exception.CarIllegalException;
+import by.epam.javawebtraining.maksimkosmachev.task1.util.myArrayList.SimpleCarArray;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -19,7 +21,17 @@ public class RandomCreator {
 
     public List<Car> createRandomCars() throws CarIllegalException {
         List<Car> cars = new ArrayList<>();
-        for (int i = 0; i < random.nextInt(20) + 5; i++) { // Creating list of cars ( from 5 to 25 pieces )
+        int bounds=random.nextInt(5) + 4;
+        for (int i = 0; i < bounds; i++) { // Creating list of cars ( from 5 to 25 pieces )
+            cars.add(addRundomCar());
+        }
+        return cars;
+    }
+
+    public List<Car> createRandomCarsForSimpleCarArray() throws CarIllegalException {
+        List<Car> cars = new ArrayList<Car>(Arrays.asList(new SimpleCarArray().getCarArray()));
+        int bounds=random.nextInt(5) + 4;
+        for (int i = 0; i < bounds; i++) { // Creating list of cars ( from 5 to 25 pieces )
             cars.add(addRundomCar());
         }
         return cars;

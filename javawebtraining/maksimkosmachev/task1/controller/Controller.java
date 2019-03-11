@@ -16,7 +16,8 @@ public class Controller {
         RandomCreator randomCreator = new RandomCreator();
         TaxiPark taxiPark = null;
         try {
-            taxiPark = new TaxiPark(randomCreator.createRandomCars());
+           // taxiPark = new TaxiPark(randomCreator.createRandomCars());
+            taxiPark=new TaxiPark(randomCreator.createRandomCarsForSimpleCarArray());
             System.out.println("Quantity of car : "+"\n" + SortByParameter.findGeneralQuantity(taxiPark) + "\n");
             printer.print(taxiPark);
             System.out.println("The oldest car is: "+"\n" + SortByParameter.findTheOldestCar(taxiPark) + "\n");
@@ -27,7 +28,7 @@ public class Controller {
             System.out.println("All passangers cars in taxi park: " +SortByParameter.findAllPassangerCar(taxiPark));
 
         } catch (Exception e) {
-            System.err.println(e);
+           e.printStackTrace();
         }
     }
 }
