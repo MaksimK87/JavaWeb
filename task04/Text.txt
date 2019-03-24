@@ -1,0 +1,95 @@
+	Autoboxing, and, Unboxing- in Java.
+	Autoboxing: Converting a primitive value into an object of the corresponding wrapper class is
+called autoboxing. For example, converting int to Integer class. The Java compiler applies autoboxing
+when a primitive value is:
+
+- Passed as a parameter to a method that expects an object of the corresponding wrapper class.
+- Assigned to a variable of the corresponding wrapper class.
+	Unboxing: Converting an object of a wrapper type to its corresponding primitive value is called unboxing.
+For example conversion of Integer to int. The Java compiler applies unboxing when an object of a wrapper class is:
+
+- Passed as a parameter to a method that expects a value of the corresponding primitive type.
+- Assigned to a variable of the corresponding primitive type.
+
+
+// Java program to illustrate the concept 
+// of Autoboxing and Unboxing 
+import java.io.*; 
+  
+class GFG 
+{ 
+    public static void main (String[] args) 
+    { 
+        // creating an Integer Object 
+        // with value 10. 
+        Integer i = new Integer(10); 
+  
+        // unboxing the Object 
+        int i1 = i; 
+  
+        System.out.println("Value of i: " + i); 
+        System.out.println("Value of i1: " + i1); 
+  
+        //Autoboxing of char 
+        Character gfg = 'a'; 
+  
+        // Auto-unboxing of Character 
+        char ch = gfg; 
+        System.out.println("Value of ch: " + ch); 
+        System.out.println("Value of gfg: " + gfg); 
+  
+    } 
+} 
+Output:
+
+Value of i: 10
+Value of i1: 10
+Value of ch: a
+Value of gfg: a
+	Another example to understand how compiler did autoboxing and unboxing in the example of
+ Collections in java using generics.
+
+/* Java program to illustrate autoboxing */
+import java.io.*; 
+import java.util.*; 
+  
+class GFG 
+{ 
+    public static void main (String[] args) 
+    { 
+        /* Here we are creating a list 
+          of elements of Integer type. 
+          adding the int primitives type values */
+        List<Integer> list = new ArrayList<Integer>(); 
+        for (int i = 0; i < 10; i++) 
+            list.add(i); 
+    } 
+} 
+	In above example we have created a list of elements of Integer type. We are adding int primitive type
+values instead of Integer Object and the code successfully compiled. It does not generate a compile time
+error as java compiler create Integer wrapper Object from primitive int i and adds it to the list.
+See the following example for, How it converts…
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+/* Java program to illustrate autoboxing */
+import java.io.*; 
+import java.util.*; 
+  
+class GFG 
+{ 
+    public static void main (String[] args) 
+    { 
+        /* Here we are creating a list of elements 
+          of Integer type. Adding the int primitives 
+          type values by converting them into Integer 
+          wrapper Object*/
+        List<Integer> list = new ArrayList<Integer>(); 
+        for (int i = 0; i < 10; i++) 
+            list.add(Integer.valueOf(i)); 
+  
+    } 
+} 
