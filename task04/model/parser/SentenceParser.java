@@ -38,7 +38,7 @@ public class SentenceParser extends AbstractParser {
             setOfWords=composite.getString().split(sentenceSplitter);
                 logger.info("sentence was splitted:" + composite.getString());
                 for (String word : setOfWords) {
-                    Word w = new Word(word);
+                    Word w = new Word(word.trim());
                     words.add(w);
                     logger.info("word was added to container of words: "  + w.getString());
             }

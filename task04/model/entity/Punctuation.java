@@ -13,6 +13,6 @@ public class Punctuation implements IUnit {
 
     @Override
     public String getString() {
-        return null;
+        return punctSign;
     }
 }

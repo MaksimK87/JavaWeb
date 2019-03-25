@@ -14,7 +14,7 @@ public class TextParcer extends AbstractParser {
     private static Logger logger = Logger.getLogger(TextParcer.class);
 
     private String text;
-    private static final String PARAGRAF_SPLITTER = "(\\t|\\n)+";
+    private static final String PARAGRAF_SPLITTER = "[\t]";
 
     public String getText() {
 
@@ -39,7 +39,7 @@ public class TextParcer extends AbstractParser {
     public List<IUnit> parse() {
         String[] paragrafs = text.split(PARAGRAF_SPLITTER);
         for (String paragraf : paragrafs) {
-            logger.info("next paragraf will add to container: " + "\n" + paragraf);
+            logger.info("\n"+"next paragraf will add to container: " + "\n" + paragraf);
             composites.add(new Paragraf(paragraf));
         }
         if (this.getNextParser() != null) {

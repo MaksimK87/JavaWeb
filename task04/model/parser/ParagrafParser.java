@@ -29,13 +29,28 @@ public class ParagrafParser extends AbstractParser {
         String[] setOfSentences;
         Pattern pat = Pattern.compile(CODE_SEARCHER);
         Matcher mat;
+        Sentence pieceOfSentenceBegin;
+        Sentence pieceOfSentenceEnd;
         for (IUnit composite : composites) {
             mat = pat.matcher(composite.getString());
             if (mat.find()) {
+                if(mat.start()>0){
+                    pieceOfSentenceBegin=new Sentence(composite.getString().substring(0,mat.start()));
+                    sentences.add(pieceOfSentenceBegin);
+                    logger.info("Beginning of sentence from code paragraf add to container "+"\n"
+                    +pieceOfSentenceBegin.getString());
+                }
                 Code code = new Code(mat.group());
-                logger.info("Code was detected: " + "\n" + code.getString());
+                logger.info("Code was detected, added to container: " + "\n" + code.getString());
                 sentences.add(code);
-                continue;
+                if(mat.end()<composite.getString().length()-1){
+                    pieceOfSentenceEnd=new Sentence(composite.getString().substring(mat.end(),
+                            composite.getString().length()));
+                    sentences.add(pieceOfSentenceEnd);
+                    logger.info("End of sentence from code paragraf add to container "+"\n"
+                            +pieceOfSentenceEnd.getString());
+                }
+
             } else {
                 setOfSentences = composite.getString().split(SENTENCE_SPLITTER);
                 logger.info("paragraf was splitted:" + composite.getString());

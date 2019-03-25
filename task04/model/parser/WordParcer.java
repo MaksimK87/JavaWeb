@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class WordParcer extends AbstractParser {
     private static Logger logger = Logger.getLogger(WordParcer.class);
-    String wordSplitter = "[,|.|;|:|-]";
+    String wordSplitter = "[.|,|;|:|-]";
 
     @Override
     List<IUnit> parse() {
@@ -27,23 +27,27 @@ public class WordParcer extends AbstractParser {
         Pattern pat = Pattern.compile(wordSplitter);
         Matcher mat;
         for (IUnit element : words) {
-            mat = pat.matcher(wordSplitter);
-            if (mat.find()) {
-                Punctuation punct = new Punctuation(mat.group());
-                separateElements = element.getString().split(wordSplitter);
-                logger.info("sign of punctuation was found and add to wordsElement container: "
-                        + punct.getString());
-                for (String separateElement : separateElements) {
-                    wordElements.add(new Word(separateElement));
-                    logger.info("Word and sign of punctuation were splitted " + separateElement + " " + "-->" + punct);
-                    wordElements.add(punct);
-                }
-            }
+            mat = pat.matcher(element.getString());
             if ((element instanceof Code)) {
                 logger.info("Code was skipped while word parsing splitting process:" + element.getString());
                 wordElements.add(element);
                 continue;
-            } else {
+            }
+            if (mat.find()) {
+                Punctuation punct = new Punctuation(mat.group());
+                separateElements = element.getString().split(mat.group());
+                logger.info("sign of punctuation was found and add to wordsElement container: "
+                        + punct.getString());
+                for (String separateElement : separateElements) {
+                    logger.info("Word and sign of punctuation were splitted: " + separateElement);
+                    wordElements.add(new Word(separateElement));
+                }
+                wordElements.add(punct);
+                wordElements.add(new Punctuation(" "));
+                logger.info("element of punctuation is: --> " +punct.getString());
+            }
+
+             else {
                 wordElements.add(element);
             }
 
