@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taxiPark xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns = "http://www.example.com/taxiPark"
+        xsi:schemaLocation ="http://www.example.com/taxiPark">
+
+    <passengerCar id="1">
+        <manufacturer>AUDI</manufacturer>
+        <yearOfIssue>2012</yearOfIssue>
+        <price>12500</price>
+        <fuelType>DIESEL</fuelType>
+        <consumption>7.0</consumption>
+        <engineValue>3.0</engineValue>
+        <kilometrage>85255</kilometrage>
+        <fare>90</fare>
+        <seatsQuantity>5</seatsQuantity>
+        <bodyType>UNIVERSAL</bodyType>
+    </passengerCar>
+
+    <lorry id="2">
+        <manufacturer>HYUNDAI</manufacturer>
+        <yearOfIssue>2008</yearOfIssue>
+        <price>28000</price>
+        <fuelType>DIESEL</fuelType>
+        <consumption>15.0</consumption>
+        <engineValue>15.0</engineValue>
+        <kilometrage>550000</kilometrage>
+        <fare>200 </fare>
+        <typeOfLorry>AUTOMATIC_COUPLER</typeOfLorry>
+        <weight>12500</weight>
+    </lorry>
+
+    <passengerCar id="3">
+        <manufacturer>OPEL</manufacturer>
+        <yearOfIssue>1993</yearOfIssue>
+        <price>2100</price>
+        <fuelType>GASOLINE</fuelType>
+        <consumption>10.0</consumption>
+        <engineValue>1.8</engineValue>
+        <kilometrage>195255</kilometrage>
+        <fare>30</fare>
+        <seatsQuantity>7</seatsQuantity>
+        <bodyType>MINIVAN</bodyType>
+    </passengerCar>
+
+    <lorry id="4">
+        <manufacturer>RENAULT</manufacturer>
+        <yearOfIssue>2010</yearOfIssue>
+        <price>10999</price>
+        <fuelType>DIESEL</fuelType>
+        <consumption>12.0</consumption>
+        <engineValue>10.0</engineValue>
+        <kilometrage>885255</kilometrage>
+        <fare>190</fare>
+        <typeOfLorry>REFRIGERATOR_VAN</typeOfLorry>
+        <weight>12500</weight>
+    </lorry>
+
+</taxiPark>

@@ -1,0 +1,50 @@
+2019-04-12 11:23:16 INFO  root:24 - SAX builder's result: 
+TaxiPark: 
+Car{ ID: 1,  manufacturer=AUDI, yearOfIssue=2012year, price=12500$, fuelType=DIESEL, consumption=7.0L/100 km,
+engineValue=3.0L, kilometrage=85255km, fare=90.0rub.}PassengerCar{seatsQuantity=5, bodyType=UNIVERSAL}
+Car{ ID: 2,  manufacturer=HYUNDAI, yearOfIssue=2008year, price=28000$, fuelType=DIESEL, consumption=15.0L/100 km,
+engineValue=15.0L, kilometrage=550000km, fare=200.0rub.}Lorry{typeOfLorry=AUTOMATIC_COUPLER, weight=12500kg}
+Car{ ID: 3,  manufacturer=OPEL, yearOfIssue=1993year, price=2100$, fuelType=GASOLINE, consumption=10.0L/100 km,
+engineValue=1.8L, kilometrage=195255km, fare=30.0rub.}PassengerCar{seatsQuantity=7, bodyType=MINIVAN}
+Car{ ID: 4,  manufacturer=RENAULT, yearOfIssue=2010year, price=10999$, fuelType=DIESEL, consumption=12.0L/100 km,
+engineValue=10.0L, kilometrage=885255km, fare=190.0rub.}Lorry{typeOfLorry=REFRIGERATOR_VAN, weight=12500kg}
+
+2019-04-12 11:23:16 INFO  SortByParameter:39 - 
+ Park ordered by consumption: TaxiPark: 
+Car{ ID: 1,  manufacturer=AUDI, yearOfIssue=2012year, price=12500$, fuelType=DIESEL, consumption=7.0L/100 km,
+engineValue=3.0L, kilometrage=85255km, fare=90.0rub.}
+Car{ ID: 3,  manufacturer=OPEL, yearOfIssue=1993year, price=2100$, fuelType=GASOLINE, consumption=10.0L/100 km,
+engineValue=1.8L, kilometrage=195255km, fare=30.0rub.}
+Car{ ID: 4,  manufacturer=RENAULT, yearOfIssue=2010year, price=10999$, fuelType=DIESEL, consumption=12.0L/100 km,
+engineValue=10.0L, kilometrage=885255km, fare=190.0rub.}
+Car{ ID: 2,  manufacturer=HYUNDAI, yearOfIssue=2008year, price=28000$, fuelType=DIESEL, consumption=15.0L/100 km,
+engineValue=15.0L, kilometrage=550000km, fare=200.0rub.}
+
+
+2019-04-12 11:23:16 INFO  root:30 - DOM builder's result: 
+[Car{ ID: 1,  manufacturer=AUDI, yearOfIssue=2012year, price=12500$, fuelType=DIESEL, consumption=7.0L/100 km,
+engineValue=3.0L, kilometrage=85255km, fare=90.0rub.}PassengerCar{seatsQuantity=5, bodyType=UNIVERSAL}, Car{ ID: 3,  manufacturer=OPEL, yearOfIssue=1993year, price=2100$, fuelType=GASOLINE, consumption=10.0L/100 km,
+engineValue=1.8L, kilometrage=195255km, fare=30.0rub.}PassengerCar{seatsQuantity=7, bodyType=MINIVAN}, Car{ ID: 2,  manufacturer=HYUNDAI, yearOfIssue=2008year, price=28000$, fuelType=DIESEL, consumption=15.0L/100 km,
+engineValue=15.0L, kilometrage=550000km, fare=200.0rub.}Lorry{typeOfLorry=AUTOMATIC_COUPLER, weight=12500kg}, Car{ ID: 4,  manufacturer=RENAULT, yearOfIssue=2010year, price=10999$, fuelType=DIESEL, consumption=12.0L/100 km,
+engineValue=10.0L, kilometrage=885255km, fare=190.0rub.}Lorry{typeOfLorry=REFRIGERATOR_VAN, weight=12500kg}]
+2019-04-12 11:23:16 INFO  SortByParameter:67 - 
+ Taxi park has lorries, such as: TaxiPark: 
+Car{ ID: 2,  manufacturer=HYUNDAI, yearOfIssue=2008year, price=28000$, fuelType=DIESEL, consumption=15.0L/100 km,
+engineValue=15.0L, kilometrage=550000km, fare=200.0rub.}Lorry{typeOfLorry=AUTOMATIC_COUPLER, weight=12500kg}
+Car{ ID: 4,  manufacturer=RENAULT, yearOfIssue=2010year, price=10999$, fuelType=DIESEL, consumption=12.0L/100 km,
+engineValue=10.0L, kilometrage=885255km, fare=190.0rub.}Lorry{typeOfLorry=REFRIGERATOR_VAN, weight=12500kg}
+
+
+2019-04-12 11:23:16 INFO  root:39 - StAX builder's result: 
+TaxiPark: 
+Car{ ID: 1,  manufacturer=AUDI, yearOfIssue=2012year, price=12500$, fuelType=DIESEL, consumption=7.0L/100 km,
+engineValue=3.0L, kilometrage=85255km, fare=90.0rub.}PassengerCar{seatsQuantity=5, bodyType=UNIVERSAL}
+Car{ ID: 2,  manufacturer=HYUNDAI, yearOfIssue=2008year, price=28000$, fuelType=DIESEL, consumption=15.0L/100 km,
+engineValue=15.0L, kilometrage=550000km, fare=200.0rub.}Lorry{typeOfLorry=AUTOMATIC_COUPLER, weight=12500kg}
+Car{ ID: 3,  manufacturer=OPEL, yearOfIssue=1993year, price=2100$, fuelType=GASOLINE, consumption=10.0L/100 km,
+engineValue=1.8L, kilometrage=195255km, fare=30.0rub.}PassengerCar{seatsQuantity=7, bodyType=MINIVAN}
+Car{ ID: 4,  manufacturer=RENAULT, yearOfIssue=2010year, price=10999$, fuelType=DIESEL, consumption=12.0L/100 km,
+engineValue=10.0L, kilometrage=885255km, fare=190.0rub.}Lorry{typeOfLorry=REFRIGERATOR_VAN, weight=12500kg}
+
+2019-04-12 11:23:16 INFO  SortByParameter:53 - The oldest car is: Car{ ID: 3,  manufacturer=OPEL, yearOfIssue=1993year, price=2100$, fuelType=GASOLINE, consumption=10.0L/100 km,
+engineValue=1.8L, kilometrage=195255km, fare=30.0rub.}PassengerCar{seatsQuantity=7, bodyType=MINIVAN}

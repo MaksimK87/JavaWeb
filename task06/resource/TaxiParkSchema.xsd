@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/taxiPark"
+        xmlns:tns="http://www.example.com/taxiPark"
+       elementFormDefault="qualified">
+
+    <element name="car" type="tns:Car" abstract="true"/>
+    <element name="passengerCar" type="tns:PassengerCar" substitutionGroup="tns:car"/>
+    <element name="lorry" type="tns:Lorry" substitutionGroup="tns:car"/>
+    <element name="taxiPark">
+        <complexType>
+            <sequence>
+                <element ref="tns:car" minOccurs="1" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Car">
+
+        <sequence>
+            <element name="manufacturer">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="VOLVO"/>
+                        <enumeration value="DAF"/>
+                        <enumeration value="MERSEDES"/>
+                        <enumeration value="FORD"/>
+                        <enumeration value="VOLKSWAGEN"/>
+                        <enumeration value="TOYOTA"/>
+                        <enumeration value="NISSAN"/>
+                        <enumeration value="HYUNDAI"/>
+                        <enumeration value="BMW"/>
+                        <enumeration value="OPEL"/>
+                        <enumeration value="MAZDA"/>
+                        <enumeration value="RENAULT"/>
+                        <enumeration value="HONDA"/>
+                        <enumeration value="MITSUBISHI"/>
+                        <enumeration value="AUDI"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="yearOfIssue" type="positiveInteger"/>
+            <element name="price" type="positiveInteger"/>
+            <element name="fuelType">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="DIESEL"/>
+                        <enumeration value="GASOLINE"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="consumption" type="double"/>
+            <element name="engineValue" type="double"/>
+            <element name="kilometrage" type="positiveInteger"/>
+            <element name="fare" type="double"/>
+
+        </sequence>
+        <attribute name="id" type="tns:Id" use="required"/>
+
+    </complexType>
+
+    <simpleType name="Id">
+        <restriction base="integer">
+            <pattern value="[0-9]{1,9}"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="PassengerCar">
+        <complexContent>
+            <extension base="tns:Car">
+
+                <sequence>
+
+                    <element name="seatsQuantity" type="positiveInteger"/>
+                    <element name="bodyType">
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="SEDAN"/>
+                                <enumeration value="HATCHBACK"/>
+                                <enumeration value="UNIVERSAL"/>
+                                <enumeration value="SUV"/>
+                                <enumeration value="MINIVAN"/>
+                                <enumeration value="MINIBUS"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Lorry">
+
+        <complexContent>
+            <extension base="tns:Car">
+                <sequence>
+                    <element name="typeOfLorry">
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="SEMITRAILER"/>
+                                <enumeration value="AUTOMATIC_COUPLER"/>
+                                <enumeration value="REFRIGERATOR_VAN"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="weight" type="positiveInteger"/>
+                </sequence>
+
+            </extension>
+
+        </complexContent>
+
+    </complexType>
+
+</schema>
+
+
+
+
+
+
+
+
+
+
+
